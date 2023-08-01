@@ -2,12 +2,12 @@ import { MysqlConnectionOptions } from "typeorm/driver/mysql/MysqlConnectionOpti
 import { ConnectionOptions } from "typeorm";
 
 const config: ConnectionOptions = {
-    type: "mysql",
-    host: "localhost",
-    port: 4507,
+    type: process.env.DBTYPE as any,
+    host: process.env.DBHOST,
+    port: process.env.DBPORT as any,
     username: process.env.DBUSERNAME,
-    password: "",
-    database: "",
+    password: process.env.DBPASSWORD,
+    database:process.env.DBNAME,
     entities: [''],
     synchronize: false,
     migrationsRun: false,
